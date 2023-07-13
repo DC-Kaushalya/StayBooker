@@ -23,11 +23,13 @@ mongoose.connection.on("disconnected", () => {
 	console.log("MongoDB disconnected.");
 });
 
+app.use(express.json());
+
 // Middleware
 app.use("/api/auth", authRouter);
-app.use("/api/users", authRouter);
-app.use("/api/hotels", authRouter);
-app.use("/api/rooms", authRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/hotels", hotelsRouter);
+app.use("/api/rooms", roomsRouter);
 
 app.listen(3000, () => {
 	connect();

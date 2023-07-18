@@ -1,10 +1,10 @@
 import express from "express";
 import {
-	createHotel,
-	updateHotel,
-	deleteHotel,
-	getHotel,
-	getHotels,
+  createHotel,
+  updateHotel,
+  deleteHotel,
+  getHotel,
+  getHotels,
 } from "../controllers/hotel.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 

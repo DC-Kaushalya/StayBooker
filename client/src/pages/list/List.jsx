@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
@@ -14,10 +14,16 @@ const List = () => {
 	const [date, setDate] = useState(location.state.date);
 	const [openDate, setOpenDate] = useState(false);
 	const [options, setOptions] = useState(location.state.options);
+	const [min, setMin] = useState(undefined);
+	const [max, setMax] = useState(undefined);
 
-	const { data, loading, error, refetch } = useFetch(
-		`/hotels?city=${destination}`
+	const { data, loading, error, reFetch } = useFetch(
+		`/hotels?city=${destination}&min=${min || 1}&max=${max || 999}`
 	);
+
+	const handleClick = () => {
+		reFetch();
+	};
 
 	return (
 		<div>
@@ -61,6 +67,7 @@ const List = () => {
 									</span>
 									<input
 										type="number"
+										onChange={(e) => setMin(e.target.value)}
 										className="lsOptionInput"
 									/>
 								</div>
@@ -70,6 +77,7 @@ const List = () => {
 									</span>
 									<input
 										type="number"
+										onChange={(e) => setMax(e.target.value)}
 										className="lsOptionInput"
 									/>
 								</div>
@@ -104,7 +112,7 @@ const List = () => {
 								</div>
 							</div>
 						</div>
-						<button>Search</button>
+						<button onClick={handleClick}>Search</button>
 					</div>
 					<div className="listResult">
 						{loading ? (

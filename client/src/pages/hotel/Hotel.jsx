@@ -23,7 +23,7 @@ const Hotel = () => {
 
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
-  const [openModal, setOpenModel] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const { data, loading, error } = useFetch(`/hotels/find/${id}`);
   const { user } = useContext(AuthContext);
@@ -59,7 +59,7 @@ const Hotel = () => {
 
   const handleClick = () => {
     if (user) {
-      setOpenModel(true);
+      setOpenModal(true);
     } else {
       navigate("/login");
     }
@@ -135,7 +135,7 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModel} hotelId={id} />}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };

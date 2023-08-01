@@ -8,19 +8,19 @@ import { SearchContext } from "../../context/SearchContext";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error } = useFetch(`hotels/room/${hotelId}`);
+  const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
+
     const date = new Date(start.getTime());
 
-    let dates = [];
+    const dates = [];
 
-    while (data <= end) {
+    while (date <= end) {
       dates.push(new Date(date).getTime());
-
       date.setDate(date.getDate() + 1);
     }
 
@@ -43,7 +43,7 @@ const Reserve = ({ setOpen, hotelId }) => {
     <div className="reverse">
       <div className="rContainer">
         <FontAwesomeIcon icon={faCircleXmark} className="rClose" onClick={() => setOpen(false)} />
-        <span>Slect your room:</span>
+        <span>Select your room:</span>
         {data.map((item) => (
           <div className="rItem">
             <div className="rItemInfo">

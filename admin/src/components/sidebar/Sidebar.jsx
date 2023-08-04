@@ -21,7 +21,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
+          <span className="logo">StayBooker</span>
         </Link>
       </div>
       <hr />
@@ -87,14 +87,8 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="bottom">
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
-        ></div>
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
-        ></div>
+        <div className="colorOption" onClick={() => dispatch({ type: "LIGHT" })}></div>
+        <div className="colorOption" onClick={() => dispatch({ type: "DARK" })}></div>
       </div>
     </div>
   );

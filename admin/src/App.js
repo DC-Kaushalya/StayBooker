@@ -7,13 +7,13 @@ import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { userInputs } from "./formSource";
 import { DarkModeContext } from "./context/darkModeContext";
 
-import "./style/dark.scss";
 import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewRoom from "./pages/newRoom/NewRoom";
+import "./style/dark.scss";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -24,7 +24,6 @@ function App() {
     if (!user) {
       return <Navigate to="/login" />;
     }
-
     return children;
   };
 
@@ -61,7 +60,6 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-
               <Route
                 path="new"
                 element={
@@ -98,6 +96,7 @@ function App() {
                 }
               />
             </Route>
+
             <Route path="rooms">
               <Route
                 index

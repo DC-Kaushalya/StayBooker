@@ -1,11 +1,11 @@
-import "./newRoom.scss";
+import axios from "axios";
+import { useState } from "react";
+
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
-import axios from "axios";
+import "./newRoom.scss";
 
 const NewRoom = () => {
   const [info, setInfo] = useState({});
@@ -31,11 +31,14 @@ const NewRoom = () => {
   return (
     <div className="new">
       <Sidebar />
+
       <div className="newContainer">
         <Navbar />
+
         <div className="top">
           <h1>Add new Room</h1>
         </div>
+
         <div className="bottom">
           <div className="right">
             <form>
@@ -50,6 +53,7 @@ const NewRoom = () => {
                   />
                 </div>
               ))}
+
               <div className="formInput">
                 <label>Rooms</label>
                 <textarea
@@ -57,6 +61,7 @@ const NewRoom = () => {
                   placeholder="give comma between room numbers"
                 ></textarea>
               </div>
+
               <div className="formInput">
                 <label>Choose a hotel</label>
                 <select id="hotelId" onChange={(e) => setHotelId(e.target.value)}>
@@ -70,6 +75,7 @@ const NewRoom = () => {
                       ))}
                 </select>
               </div>
+
               <button onClick={handleClick}>Send</button>
             </form>
           </div>

@@ -1,11 +1,12 @@
-import "./newHotel.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+import axios from "axios";
 import { useState } from "react";
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+
 import { hotelInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
-import axios from "axios";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import "./newHotel.scss";
 
 const NewHotel = () => {
   const [files, setFiles] = useState("");
@@ -47,7 +48,6 @@ const NewHotel = () => {
         rooms,
         photos: list,
       };
-
       await axios.post("/hotels", newHotel);
     } catch (err) {}
   };
@@ -57,9 +57,11 @@ const NewHotel = () => {
       <Sidebar />
       <div className="newContainer">
         <Navbar />
+
         <div className="top">
           <h1>Add New Product</h1>
         </div>
+
         <div className="bottom">
           <div className="left">
             <img
@@ -71,6 +73,7 @@ const NewHotel = () => {
               alt=""
             />
           </div>
+
           <div className="right">
             <form>
               <div className="formInput">
@@ -97,6 +100,7 @@ const NewHotel = () => {
                   />
                 </div>
               ))}
+
               <div className="formInput">
                 <label>Featured</label>
                 <select id="featured" onChange={handleChange}>
@@ -104,6 +108,7 @@ const NewHotel = () => {
                   <option value={true}>yes</option>
                 </select>
               </div>
+
               <div className="selectRooms">
                 <label>Rooms</label>
                 <select id="rooms" multiple onChange={handleSelect}>
@@ -117,6 +122,7 @@ const NewHotel = () => {
                       ))}
                 </select>
               </div>
+
               <button onClick={handleClick}>Send</button>
             </form>
           </div>

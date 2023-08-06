@@ -1,9 +1,8 @@
 import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-import { userColumns, userRows } from "../../datatablesource";
 import useFetch from "../../hooks/useFetch";
 import "./datatable.scss";
 
@@ -54,6 +53,7 @@ const Datatable = ({ columns }) => {
           Add New
         </Link>
       </div>
+
       <DataGrid
         className="datagrid"
         rows={list}

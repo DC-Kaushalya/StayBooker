@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 
-import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import "./new.scss";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");

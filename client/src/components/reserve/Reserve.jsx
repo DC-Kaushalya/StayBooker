@@ -1,12 +1,12 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChampagneGlasses, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-import "./Reserve.css";
 import useFetch from "./../../hooks/useFetch";
 import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import "./Reserve.css";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);

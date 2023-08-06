@@ -77,6 +77,7 @@ const New = ({ inputs, title }) => {
                     onChange={handleChange}
                     type={input.type}
                     placeholder={input.placeholder}
+                    id={input.id}
                   />
                 </div>
               ))}

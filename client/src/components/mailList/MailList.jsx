@@ -1,4 +1,4 @@
-import "./mailList.css"
+import "./mailList.css";
 
 const MailList = () => {
   return (
@@ -10,7 +10,7 @@ const MailList = () => {
         <button>Subscribe</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MailList
+export default MailList;
